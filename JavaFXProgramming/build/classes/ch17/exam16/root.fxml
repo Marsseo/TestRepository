@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam16.RootController">
+   <children>
+      <Label layoutX="13.0" layoutY="24.0" text="TextArea1" />
+      <TextArea fx:id="textArea1" layoutX="20.0" layoutY="39.0" prefHeight="79.0" prefWidth="239.0" />
+      <Label layoutX="13.0" layoutY="154.0" text="TextArea2" />
+      <TextArea fx:id="textArea2" layoutX="22.0" layoutY="180.0" prefHeight="73.0" prefWidth="239.0" />
+   </children>
+</AnchorPane>

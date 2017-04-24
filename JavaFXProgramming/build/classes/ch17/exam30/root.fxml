@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="50.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="23.0" layoutY="18.0" style="-fx-background-color: #000000; -fx-text-fill: #ffff00;" text="검정바당, 노란글씨" />
+      <Label layoutX="165.0" layoutY="18.0" style="-fx-background-color: #0000ff; -fx-text-fill: #ffffff;" text="파란바탕, 흰글씨" />
+      <Label layoutX="294.0" layoutY="18.0" style="-fx-background-color: #0000ff; -fx-text-fill: #ffffff;" text="파란바당, 흰글씨" />
+   </children>
+</AnchorPane>
