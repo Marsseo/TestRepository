@@ -3,5 +3,6 @@ public class ClassA{
     Sytem.out.println("User1이 작성");
     Sytem.out.println("User2이 작성");
     Sytem.out.println("User2이 작성2");
+    Sytem.out.println("User2이 작성3");
   }
 }
