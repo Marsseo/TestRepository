@@ -3,6 +3,7 @@ function totalSum(from, to) {
 		to = from;
 		from = 1;
 	}
+
 	var sum = 0;
 	for (var i = from; i <= to; i++) {
 		sum += i;
@@ -10,6 +11,6 @@ function totalSum(from, to) {
 	return sum;
 }
 
-function handleBtnOk(){
-	console.log("OK버튼을 클릭함");
+function handleBtnOk() {
+	console.log("OK 버튼을 클릭함");
 }

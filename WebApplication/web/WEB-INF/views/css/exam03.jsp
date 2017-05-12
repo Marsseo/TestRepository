@@ -7,17 +7,14 @@
 		<link href="/WebApplication/resources/css/exam03.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-		
-		<div>div태그</div>
-		<div>div태그</div>
-		<div>div태그</div>
-		<div class="skyblue">div태그</div>
-		<div class="skyblue">div태그</div>
-		<div id="goldDiv1" class="skyblue">div태그</div>
-		<div id="goldDiv2" class="skyblue">div태그</div>
-		<a class="btn success">확인</a>    
-		<a class="btn warning">확인</a>
-		
-	
+		<div >div 태그</div>
+		<div >div 태그</div>
+		<div >div 태그</div>
+		<div class="skyblue">div 태그</div>
+		<div class="skyblue">div 태그</div>
+		<div id="goldDiv1" class="skyblue">div 태그</div>
+		<div id="goldDiv2" class="skyblue">div 태그</div>
+		<a class="btn success">확인</a>
+		<a class="btn warining">확인</a>
 	</body>
 </html>
