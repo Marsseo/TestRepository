@@ -79,7 +79,7 @@
 				</div>
 			</div>
 			
-			<input type="submit" class="btn btn-info" value="제출"/>
+			<input type="submit" class="btn btn-info" value="가입"/>
 		</form>
 	</body>	
 </html>
