@@ -26,7 +26,7 @@ public class Rgbled {
 		greenPin.setShutdownOptions(true, PinState.LOW);
 		
 		bluePin = gpioController.provisionDigitalOutputPin(bluePinNo, PinState.HIGH);
-		bluePin.setShutdownOptions(true, PinState.LOW);sss
+		bluePin.setShutdownOptions(true, PinState.LOW);
 		
 	}
 	//Method
