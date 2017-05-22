@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DispatcherServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-		System.out.println("service 실행"); 
+		System.out.println("service() 실행"); 
 	}
 	@Override
 	public void init(ServletConfig config) throws ServletException {

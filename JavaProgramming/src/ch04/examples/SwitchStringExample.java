@@ -2,13 +2,13 @@ package ch04.examples;
 
 public class SwitchStringExample {
 	public static void main(String[] args){
-		String position = "°úÀå";
+		String position = "ï¿½ï¿½ï¿½ï¿½";
 
 		switch(position){
-		case "ºÎÀå":
+		case "ddd":
 			System.out.println("700ï¿½ï¿½ï¿½ï¿½");
 			break;
-		case "°úÀå":
+		case "aaa":
 			System.out.println("500ï¿½ï¿½ï¿½ï¿½");
 			break;
 		default:

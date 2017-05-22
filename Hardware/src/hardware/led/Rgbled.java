@@ -8,13 +8,13 @@ import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
 
-public class Rgbled {
+public class RgbLed {
 	private GpioPinDigitalOutput redPin;
 	private GpioPinDigitalOutput greenPin;
 	private GpioPinDigitalOutput bluePin;
 	
 	//Constructor
-	public Rgbled(Pin redPinNo, Pin greenPinNo, Pin bluePinNo){
+	public RgbLed(Pin redPinNo, Pin greenPinNo, Pin bluePinNo){
 		//싱글톤인 GpioController 생성하여 핀 세팅
 		GpioController gpioController = GpioFactory.getInstance();
 		redPin = gpioController.provisionDigitalOutputPin(redPinNo, PinState.HIGH);
@@ -30,32 +30,40 @@ public class Rgbled {
 		
 	}
 	//Method
-	public void red(){
-		redPin.low();
-		greenPin.high();
-		bluePin.high();
+	
+	public void red(boolean a){
+		if(a) redPin.low();
+		else redPin.high();
 	}
-	public void green(){
-		redPin.high();
-		greenPin.low();
-		bluePin.high();		
+	public void green(boolean a){
+		if(a) greenPin.low();
+		else greenPin.high();
 	}
-	public void blue(){
-		redPin.high();
-		greenPin.high();
-		bluePin.low();
+	public void blue(boolean a){
+		if(a) bluePin.low();
+		else bluePin.high();
+	}
+	public void rgb(boolean red, boolean green, boolean blue){
+		if(red) redPin.low();
+		else redPin.high();
+		
+		if(green) greenPin.low();
+		else greenPin.high();
+		
+		if(blue) bluePin.low();
+		else bluePin.high();
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
 		
 		
-		Rgbled test = new Rgbled(RaspiPin.GPIO_00, RaspiPin.GPIO_01, RaspiPin.GPIO_02);
+		RgbLed test = new RgbLed(RaspiPin.GPIO_00, RaspiPin.GPIO_01, RaspiPin.GPIO_02);
 		while(true){
-			test.red();
+			test.rgb(true, false, false);
 			Thread.sleep(50);
-			test.green();
+			test.rgb(false, true, false);
 			Thread.sleep(50);
-			test.blue();
+			test.rgb(false, false, true);
 			Thread.sleep(50);
 		}
 	}
