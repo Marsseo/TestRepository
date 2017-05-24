@@ -27,7 +27,7 @@
 		<h3>인라인 태그</h3>
 		<span style="background-color: yellow; border:1px solid black; height: 50px">span태그</span>
 		<span style="background-color: skyblue; border:1px solid black; height: 50px">span태그</span>
-		<img style="border:1px solid black;" src="<%=application.getContextPath()%>/resources/image/1.jpg" height="100px"/>
+		<img style="border:1px solid black;" src="<%= application.getContextPath() %>/resources/image/1.jpg" height="100px"/>
 		<a style="background-color: skyblue; border:1px solid black; height: 50px" href="/html">a태그</a>
 		<button>button태그</button>
 

@@ -5,9 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<title>JSP Page</title>
-		<link href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<script src="<%=application.getContextPath()%>/resources/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-		<script src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="<%= application.getContextPath() %>/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<script src="<%= application.getContextPath() %>/resources/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="<%= application.getContextPath() %>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
 			function chageDivContent() {
 				$("#div1").html("<p>변경된 내용</p>");
@@ -24,10 +24,10 @@
 		<h3>DIV 내용 변경</h3>
 		<a href="javascript:chageDivContent()">변경</a>
 		<div id="div1">
-			<img src="<%=application.getContextPath()%>/resources/image/photo01.jpg" width="100px" height="100px" />
+			<img src="<%= application.getContextPath() %>/resources/image/photo01.jpg" width="100px" height="100px" />
 		</div>
 		<div id="div2">
-			<img src="<%=application.getContextPath()%>/resources/image/photo02.jpg" width="100px" height="100px" />
+			<img src="<%= application.getContextPath() %>/resources/image/photo02.jpg" width="100px" height="100px" />
 		</div>
 
 		<h3>CSS 변경</h3>

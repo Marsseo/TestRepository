@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>JSP Page</title>
-		<link href="<%=application.getContextPath()%>/resources/css/exam03.css" rel="stylesheet" type="text/css"/>
+		<link href="<%= application.getContextPath() %>/resources/css/exam03.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div >div 태그</div>

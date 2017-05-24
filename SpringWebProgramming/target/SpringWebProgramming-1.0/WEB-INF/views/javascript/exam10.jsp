@@ -5,9 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<title>JSP Page</title>
-		<link href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<script src="<%=application.getContextPath()%>/resources/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-		<script src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="<%= application.getContextPath() %>/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<script src="<%= application.getContextPath() %>/resources/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="<%= application.getContextPath() %>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
 			console.log(window.outerHeight);
 			console.log(window.outerWidth);
@@ -16,7 +16,7 @@
 
 			var pop1;
 			function handleBtn1() {
-				pop1 = window.open("<%=application.getContextPath()%>/javascript/exam09", "pop1", "width=200, height=200");
+				pop1 = window.open("<%= application.getContextPath() %>/javascript/exam09", "pop1", "width=200, height=200");
 			}
 			function handleBtn2() {
 				pop1.close();
@@ -46,7 +46,7 @@
 			}
 
 			function handleBtn7() {
-				location.href = "<%=application.getContextPath()%>/javascript/exam09";
+				location.href = "<%= application.getContextPath() %>/javascript/exam09";
 			}
 
 		</script>

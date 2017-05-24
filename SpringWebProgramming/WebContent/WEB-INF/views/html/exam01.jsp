@@ -28,17 +28,17 @@
 		<input type="button"  onclick="handleBtnGoogle()" value="구글">
 
 		<h3>이미지 태그</h3>		
-		<img src="<%=application.getContextPath()%>/resources/image/1.jpg" alt="Spring" width="200"/>
-		<input type="image" src="<%=application.getContextPath()%>/resources/image/1.jpg" alt="Spring" width="200">
+		<img src="<%= application.getContextPath() %>/resources/image/1.jpg" alt="Spring" width="200"/>
+		<input type="image" src="<%= application.getContextPath() %>/resources/image/1.jpg" alt="Spring" width="200">
 		
 		<h3>컨테이너 태그</h3>		
 		<div>
 			<button onclick="handleBtnNaver()">네이버</button>
-			<img src="<%=application.getContextPath()%>/resources/image/1.jpg" alt="Spring" width="200"/>
+			<img src="<%= application.getContextPath() %>/resources/image/1.jpg" alt="Spring" width="200"/>
 		</div>
 		<div>
 			<button onclick="handleBtnNaver()">네이버</button>
-			<img src="<%=application.getContextPath()%>/resources/image/1.jpg" alt="Spring" width="200"/>
+			<img src="<%= application.getContextPath() %>/resources/image/1.jpg" alt="Spring" width="200"/>
 		</div>
 		
 		<h3>폼 태그</h3>		

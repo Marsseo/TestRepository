@@ -3,7 +3,7 @@ package test.buttontest;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 import hardware.button.Button;
-import hardware.led.RgbLed;
+import hardware.led.RgbLedDigital;
 import java.io.IOException;
 
 
@@ -15,7 +15,7 @@ public class RgbButton {
 		Button btn2 = new Button(RaspiPin.GPIO_01);
 		Button btn3 = new Button(RaspiPin.GPIO_02);
 		
-		RgbLed rgbled = new RgbLed(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
+		RgbLedDigital rgbled = new RgbLedDigital(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
 		
 		btn1.setGpioPinListenerDigital((e)->{
 			if(e.getState()==PinState.LOW){

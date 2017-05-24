@@ -8,21 +8,21 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	
-	<!--  @ 어노테이션을 이용해서 개발할 수 있도록 설정 -->
+	<!-- @ 어노테이션을 사용하여 개발 할 수 있도록 설정 -->
 	<mvc:annotation-driven/>
-	
-	<!-- Controller 가 필요없는 정적 리소스 폴더 설정 -->
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
-	
-	<!--  어떤 패키지로부터 @어노테이션을 찾아 쓸건지 설정 -->
+
+	<!-- 어떤 패키지부터 @어노테이션을 찾아서 사용할 것인지 설정 -->
 	<context:component-scan base-package="com.mycompany.myapp"/>
 	
-	<!--  스프링 관리 객체로 등록 -->
-	<bean id="test" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-				p:prefix="/WEB-INF/views/"
-				p:suffix=".jsp"/>
-				
-	<bean id="multipartResolver"
-				class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<!-- Controller 가 필요 없는 정적 리소스 폴더 -->
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
 	
+	<!-- 스프링 관리 객체 등록 -->
+	<bean 	id="viewResolver"
+				class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+				p:prefix="/WEB-INF/views/"
+				p:suffix=".jsp"/>				
+				
+	<bean	id="multipartResolver"
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />		
 </beans>
