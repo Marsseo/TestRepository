@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //resources를 이용하기 위해 지정("subExam10DaoImplA")
 public class Exam10Dao3ImplA implements Exam10Dao3{
 	private static final Logger LOGGER = LoggerFactory.getLogger(Exam10Dao3ImplA.class);
 	
