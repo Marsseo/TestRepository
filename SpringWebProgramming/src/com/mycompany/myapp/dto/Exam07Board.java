@@ -1,15 +1,27 @@
 package com.mycompany.myapp.dto;
 
 import java.util.Date;
+import org.springframework.web.multipart.MultipartFile;
 
-public class Board {
+public class Exam07Board {
     private int bno;
     private String btitle;
     private String bcontent;
     private String bwriter;
     private Date bdate;
+    private String bpassword;
+   
 
-    public int getBno() {
+    
+	public String getBpassword() {
+		return bpassword;
+	}
+
+	public void setBpassword(String bpassword) {
+		this.bpassword = bpassword;
+	}
+
+	public int getBno() {
         return bno;
     }
 

@@ -45,12 +45,12 @@ public class SG90Servo {
 		
 		SG90Servo mt = new SG90Servo(RaspiPin.GPIO_01);
 		
-		for(int i =0 ;i<180;i+=10){ // 10도씩 각도가 바뀌면서 테스트
-			mt.setAngle(i);
-			Thread.sleep(500);
-		}
+//		for(int i =0 ;i<180;i+=10){ // 10도씩 각도가 바뀌면서 테스트
+//			mt.setAngle(i);
+//			Thread.sleep(500);
+//		}
 		
-		mt.setAngle(0);
+		mt.setAngle(90);
 		Thread.sleep(500);
 	}
 	

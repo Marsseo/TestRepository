@@ -92,5 +92,10 @@
 		<h4>Redirect(재요청)</h4>
 		<a href="redirect/list" class="btn btn-primary">게시물 목록</a>
 		<a href="redirect/write" class="btn btn-primary">게시물 쓰기</a>
+		
+		<h4>JDBC</h4>
+		<a href="jdbc/exam01" class="btn btn-primary">글쓰기1</a>
+		<a href="jdbc/exam02" class="btn btn-primary">글쓰기2</a><br><br>
+		<a href="jdbc/exam03" class="btn btn-primary">회원가입 하기</a>
 	</body>
 </html>
