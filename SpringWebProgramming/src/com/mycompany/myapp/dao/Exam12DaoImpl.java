@@ -670,15 +670,18 @@ public class Exam12DaoImpl implements Exam12Dao{
 	
 	public static void main(String[] args){
 		Exam12DaoImpl test = new Exam12DaoImpl();
-		for(int i = 201 ;i<=300; i++){
+		for(int i = 1 ;i<=100; i++){
 			Exam12Member m = new Exam12Member();
-			m.setMid("hw"+i);
+			m.setMid("iot"+i);
 			m.setMname("학생"+i);
-			m.setMpassword("21"+i);
-			m.setMemail("aabb"+i+"@naver.com");
-			m.setMtel("02-"+i+"-"+"1234");
-			m.setMage(i);
-			m.setMaddress("서울특별시 송파구 가락"+i+"동");
+			m.setMpassword("00"+i);
+			m.setMemail("kim"+i+(int)(Math.random()*10)+""+(int)(Math.random()*10)+"@naver.com");
+			m.setMtel("02-"+(int)(Math.random()*10)+""+(int)(Math.random()*10)+""+(int)(Math.random()*10)+"-"+(int)(Math.random()*10)+""+(int)(Math.random()*10)+""+(int)(Math.random()*10)+""+(int)(Math.random()*10));
+			m.setMage((6/i)+(int)(Math.random()*50+1));
+			m.setMaddress("서울특별시 송파구 가락"+(int)(Math.random()*10+1)+"동 "+(int)(Math.random()*300));
+			m.setMoriginalfilename(i+".jpg");
+			m.setMsavedfilename("00-"+i+".jpg");
+			m.setMfilecontent("image/jpeg");
 			test.memberInsert(m);
 		}
 		LOGGER.info("성공");		

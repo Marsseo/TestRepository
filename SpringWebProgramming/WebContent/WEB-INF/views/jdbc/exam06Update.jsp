@@ -31,8 +31,8 @@
 		</script>
 	</head>
 <body>
-<h3>회원 정보</h3><br/><br/>
-<form method="post" id="form" style="padding: 0px 20px" enctype="multipart/form-data">
+<h3 style="text-align: center; margin-right: 20%">회원 정보</h3><br/><br/>
+<form method="post" id="form" style="padding: 20px 80px; width: 80%; text-align: center;" enctype="multipart/form-data">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
@@ -95,7 +95,7 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-picture"></span>
 					</span>
-					<div class="form-control" style="height: 47px;">
+					<div class="form-control" style="height: 47px;text-align: left;">
 						<span id="spanFileName">${m.moriginalfilename}</span>
 						<label for="mattach" class = "btn btn-default">변경</label>
 						<input id="mattach"  style="visibility:hidden;" type="file"placeholder="변경" name="mattach" onchange="fileChange()" style="display: inline-block;" />

@@ -10,16 +10,50 @@
 		<link href="<%= application.getContextPath() %>/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<script src="<%= application.getContextPath() %>/resources/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="<%= application.getContextPath() %>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function handlejoin(){
+				var form = $("#form");
+				var mid = $("#mid").val();
+				var mname = $("#mname").val();
+				var mpassword = $("#mpassword").val();
+				var mage = $("#mage").val();
+				
+				
+				if(mid==""){
+					$("#mid").attr("placeholder", "아이디를 입력하셔야 합니다.");
+					$("#mid").css("border-color", "red");
+					return;
+				}
+				else if(mname==""){
+					$("#mname").attr("placeholder", "이름을 입력하셔야 합니다.");
+					$("#mname").css("border-color", "red");
+					return;
+				}
+				else if(mpassword==""){
+					$("#mpassword").attr("placeholder", "비밀번호를 입력하셔야 합니다.");
+					$("#mpassword").css("border-color", "red");
+					return;
+				}
+				else if(mage==""){
+					$("#mage").attr("placeholder", "나이를 입력하셔야 합니다.");
+					$("#mage").css("border-color", "red");
+					return;
+				}else{
+					form.submit();
+				}
+			}
+		</script>
 	</head>
 <body>
-<h3>가입해주셔서 감사합니다.</h3><br/><br/>
-<form method="post" action="" style="padding: 0px 20px" enctype="multipart/form-data">
+<h3 style="text-align: center; margin-right: 20%">가입해주셔서 감사합니다.</h3>
+<h5 style="text-align: right; margin-right: 20%">*값은 필수 값입니다.</h5><br/>
+<form method="post" id="form" style="padding: 20px 80px; width: 80%; text-align: center;" enctype="multipart/form-data">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-user"></span>
 					</span>
-					<input type="text" class="form-control" placeholder="아이디" name="mid" />
+					<input type="text" class="form-control" placeholder="*아이디" name="mid" id="mid"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -27,7 +61,7 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-tag"></span>
 					</span>
-					<input type="text" class="form-control" placeholder="이름" name="mname" />
+					<input type="text" class="form-control" placeholder="*이름" name="mname" id="mname"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -35,7 +69,7 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-lock"></span>
 					</span>
-					<input type="password" class="form-control" placeholder="비밀번호" name="mpassword" />
+					<input type="password" class="form-control" placeholder="*비밀번호" name="mpassword" id="mpassword"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -59,7 +93,7 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-heart"></span>
 					</span>
-					<input type="text" class="form-control" placeholder="나이" name="mage" />
+					<input type="text" class="form-control" placeholder="*나이" name="mage" id="mage"/>
 				</div>
 			</div>	
 			<div class="form-group">
@@ -80,7 +114,7 @@
 				</div>
 			</div>
 
-			<input type="submit" class="btn btn-info" value="가입 완료"/>
+			<input onclick="handlejoin()" type="button" class="btn btn-info" value="가입 완료" />
 		</form>
 </body>
 </html>

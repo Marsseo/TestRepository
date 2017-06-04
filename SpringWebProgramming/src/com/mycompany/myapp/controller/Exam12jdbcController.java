@@ -2,17 +2,23 @@ package com.mycompany.myapp.controller;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -83,11 +89,11 @@ public class Exam12jdbcController {
 		//서비스 객체에 요청처리 요청
 		service.memberJoin(m);
 		// 첨부 파일을 서버 로컬 시스템에 저장
-		String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
+		String realPath = servletContext.getRealPath("/resources/upload/");	
 		File file = new File(realPath+fileName);
 		m.getMattach().transferTo(file);		
 		
-		return "redirect:/";
+		return "redirect:/jdbc/exam06";
 	}
 	
 	@RequestMapping("/jdbc/exam04")
@@ -165,7 +171,7 @@ public class Exam12jdbcController {
 			//서비스 객체에 요청처리 요청
 			service.boardWrite(b);
 			// 첨부 파일을 서버 로컬 시스템에 저장
-			String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
+			String realPath = servletContext.getRealPath("/WEB-INF/upload/");
 			File file = new File(realPath+fileName);
 			b.getBattach().transferTo(file);
 		}
@@ -179,13 +185,13 @@ public class Exam12jdbcController {
 		return "redirect:/jdbc/exam05";
 	}
 	
-	//////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping("/jdbc/exam06")
 	public String exam06(@RequestParam(defaultValue = "1") int pageNo, Model model){
 		//한 페이지를 구성하는
-		int rowsPerPage = 20;
+		int rowsPerPage = 9;
 		//한 그룹을 구성하는 페이지 수
-		int pagesPerGroup = 9;
+		int pagesPerGroup = 5;
 		//총 행수
 		int totalRows = service.memberTotalRows();
 		//전체 페이지 수
@@ -216,9 +222,10 @@ public class Exam12jdbcController {
 		return "/jdbc/exam06";
 	}
 	@RequestMapping("/jdbc/exam06Detail")
-	public String exam06Detail(String mid, Model model){
+	public String exam06Detail(String mid, int pageNo, Model model){
 		Exam12Member m = service.getMember(mid);
 		model.addAttribute("m", m);
+		model.addAttribute("pageNo", pageNo);
 		return "/jdbc/exam06Detail";
 	}
 	
@@ -231,14 +238,15 @@ public class Exam12jdbcController {
 	
 	
 	@RequestMapping(value="/jdbc/exam06Update", method=RequestMethod.GET)
-	public String exam06UpdateGet(String mid, Model model){
+	public String exam06UpdateGet(String mid, int pageNo, Model model){
 		Exam12Member m = service.getMember(mid);
 		model.addAttribute("m", m);
+		model.addAttribute("pageNo", pageNo);
 		return "/jdbc/exam06Update";
 	}
 	
 	@RequestMapping(value="/jdbc/exam06Update", method=RequestMethod.POST)
-	public String exam06UpdatePost(Exam12Member m) throws IllegalStateException, IOException{
+	public String exam06UpdatePost(Exam12Member m, int pageNo) throws IllegalStateException, IOException{
 		if(!m.getMattach().isEmpty()){
 			//첨부 파일에 대한 정보를 컬럼값으로 설정 (필드에 값을 세팅한다)
 			m.setMoriginalfilename(m.getMattach().getOriginalFilename());
@@ -248,18 +256,58 @@ public class Exam12jdbcController {
 			//서비스 객체에 요청처리 요청
 			service.memberJoin(m);
 			// 첨부 파일을 서버 로컬 시스템에 저장
-			String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
+			String realPath = servletContext.getRealPath("/resources/upload/");	
 			File file = new File(realPath+fileName);
 			m.getMattach().transferTo(file);
 		}
 		service.memberUpdate(m);
-		return "redirect:/jdbc/exam06Detail?mid="+m.getMid();
+		return "redirect:/jdbc/exam06Detail?mid="+m.getMid()+"&pageNo="+pageNo;
 	}
 	
 	@RequestMapping("/jdbc/exam06Delete")
 	public String exam06Delte(String mid){
 		service.memberWidraw(mid);
 		return "redirect:/jdbc/exam06";
-	}	
+	}
+	
+	@RequestMapping("/jdbc/exam06Download")
+    public void download(HttpServletResponse response, @RequestHeader("User-Agent") String userAgent, String savedfilename) throws IOException {
+        // 응답 HTTP 헤더행을 추가(3가지는 다 넣어주는게 좋음)
+        // 1 파일 이름(옵션)
+        String fileName = savedfilename;
+        String encodingFileName;
+        if (userAgent.contains("MSIE") || userAgent.contains("Trident") || userAgent.contains("Edge")) {
+            encodingFileName = URLEncoder.encode(fileName, "UTF-8");
+            // fileName을 UTF-8로 인코딩한 바이트 배열을 16진수로 출력함         
+        } else {
+//            encodingFileName = new String(fileName.getBytes(), "UTF-8");
+            encodingFileName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
+        }
+        System.out.println(encodingFileName);
+        
+        response.addHeader("Content-Disposition", "attachment; filename=\"" + encodingFileName + "\"");
+        // Disposition: 위치
+        // attachment: 첨부파일 이므로 브라우저는 파일로 저장하는 행동(다이얼로그 창)을 취해라
+        // "attachment; filename=\" \" " > "xxx xxx.png" 를 저장하기 위해
+        
+        // 2 파일 종류(필수)
+        response.addHeader("Content-type", "image/jpeg");
+        // "image/jpeg" >  MIME
+        
+        // 3 파일 크기(옵션)m
+        File file = new File(servletContext.getRealPath("/resources/upload/" + fileName));
+        long fileSize = file.length();
+        response.addHeader("Content-Length", String.valueOf(fileSize));
+        
+        // 응답 HTTP 본문에 파일 데이터 추가
+        OutputStream os = response.getOutputStream();
+        FileInputStream fis = new FileInputStream(file);
+        FileCopyUtils.copy(fis, os);
+        // spring 에서는 자바에서 했던 복잡한 방법으로 파일을 카피하는 방식이 아닌 FileCopyUtils 클래스 제공
+        // fis 에서 읽고, os로 출력
+        os.flush();
+        fis.close();
+        os.close();
+    }
 	
 }

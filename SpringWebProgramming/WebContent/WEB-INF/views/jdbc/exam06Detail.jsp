@@ -25,7 +25,7 @@
 					data:{"mid":"${m.mid}","mpassword":mpassword},
 					success: function(data){
 						if(data.result=="success"){
-							location.href="exam06Update?mid=${m.mid}";
+							location.href="exam06Update?mid=${m.mid}&pageNo=${pageNo}";
 						}else{
 							$("#mpassword").val("");
 							$("#mpassword").attr("placeholder", "비밀번호가 틀립니다.");
@@ -59,8 +59,15 @@
 		</script>
 	</head>
 <body>
-<h3>회원 정보</h3><br/><br/>
-<form method="post" style="padding: 0px 20px" enctype="multipart/form-data">
+<div>
+	<h3 style="text-align: center; margin-right: 20%">회원 정보</h3><br/>
+</div>
+<div style="float:left; padding: 20px 0px; margin-left: 40px;">
+	<!-- E:IoTCourse/EclipseWorkspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SpringWebProgramming/WEB-INF/upload/ -->
+	 <!-- <%= application.getContextPath() %>/WEB-INF/upload/${m.msavedfilename} -->
+	<img src="<%= application.getContextPath() %>/resources/upload/${m.msavedfilename}" width="300px" height="400px"/>
+</div>
+<form method="post" style="padding: 20px 20px; width: 60%; float:left;" enctype="multipart/form-data">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
@@ -77,7 +84,7 @@
 					<input type="text" class="form-control" placeholder="이름" name="mname" value="${m.mname}" readOnly/>
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group" >
 				<div class="input-group">
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-lock"></span>
@@ -123,11 +130,11 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-picture"></span>
 					</span>
-					<a href="" class="form-control">${m.moriginalfilename}</a>
+					<a href="exam06Download?savedfilename=${m.msavedfilename}" class="form-control">${m.moriginalfilename}</a>
 				</div>
 			</div>
 
-			<a href="exam06" class="btn btn-info" >목록</a>
+			<a href="exam06?pageNo=${pageNo}" class="btn btn-info" >목록</a>
 			<input onclick="handleBtnUpdate()" type="button" class="btn btn-warning" value="수정"/>
 			<input onclick="handleBtnDelete()" type="button" class="btn btn-danger" value="삭제"/>
 		</form>
