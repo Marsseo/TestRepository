@@ -59,7 +59,7 @@ public class RgbLedPWM {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		RgbLedPWM test = new RgbLedPWM(RaspiPin.GPIO_03, RaspiPin.GPIO_02, RaspiPin.GPIO_04);
+		RgbLedPWM test = new RgbLedPWM(RaspiPin.GPIO_04, RaspiPin.GPIO_05, RaspiPin.GPIO_06);
 		
 		// 번갈아가면서 색깔을 주고 두개, 그리고 전부 색깔을 주는 것을 테스트
 		test.ledColorSet(255, 0, 0);

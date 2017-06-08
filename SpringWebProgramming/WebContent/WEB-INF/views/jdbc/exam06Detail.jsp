@@ -65,7 +65,7 @@
 <div style="float:left; padding: 20px 0px; margin-left: 40px;">
 	<!-- E:IoTCourse/EclipseWorkspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SpringWebProgramming/WEB-INF/upload/ -->
 	 <!-- <%= application.getContextPath() %>/WEB-INF/upload/${m.msavedfilename} -->
-	<img src="<%= application.getContextPath() %>/resources/upload/${m.msavedfilename}" width="300px" height="400px"/>
+	<img src="exam06Download?savedfilename=${m.msavedfilename}" width="300px" height="400px"/>
 </div>
 <form method="post" style="padding: 20px 20px; width: 60%; float:left;" enctype="multipart/form-data">
 			<div class="form-group">

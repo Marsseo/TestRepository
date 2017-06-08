@@ -1,4 +1,4 @@
-<%@page import="com.mycompany.myapp.dto.Member"%>
+<%@page import="com.mycompany.myapp.dto.Exam07Member"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html> 
@@ -18,9 +18,9 @@
 			이름: <%=name%>
 		</div>
 		<div>
-			<%Member member = new Member("홍길동", 30);%>		
-			이름: <%=member.getName()%>
-			나이: <%=member.getAge()%>
+			<%Exam07Member Exam07Member = new Exam07Member("홍길동", 30);%>		
+			이름: <%=Exam07Member.getName()%>
+			나이: <%=Exam07Member.getAge()%>
 		</div>
 		<hr/>
 
@@ -30,17 +30,17 @@
 			이름: ${name}
 		</div>
 		<div>
-			<% request.setAttribute("member", new Member("홍길동", 30));%>
-			이름: <%= ((Member)request.getAttribute("member")).getName()%>
-			이름: ${member.name}
-			나이: ${member.age}
+			<% request.setAttribute("Exam07Member", new Exam07Member("홍길동", 30));%>
+			이름: <%= ((Exam07Member)request.getAttribute("Exam07Member")).getName()%>
+			이름: ${Exam07Member.name}
+			나이: ${Exam07Member.age}
 		</div>
 		<div>			
 			이름: ${name2}
 			이름: <%= request.getAttribute("name2")%>
-			이름: ${member2.name}
-			나이: ${member2.age}
-			나이: <%= ((Member)request.getAttribute("member2")).getAge()%>			
+			이름: ${Exam07Member2.name}
+			나이: ${Exam07Member2.age}
+			나이: <%= ((Exam07Member)request.getAttribute("Exam07Member2")).getAge()%>			
 		</div>
 	</body>
 </html>

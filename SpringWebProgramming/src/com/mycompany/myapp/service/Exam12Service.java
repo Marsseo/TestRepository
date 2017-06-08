@@ -18,6 +18,7 @@ public interface Exam12Service {
 	////////////////////////////////////////////////////
 	public void memberJoin(Exam12Member member);
 	public List<Exam12Member> memberListPage(int pageNo,int rowsPerPage);
+	public List<Exam12Member> memberListPageDif(int pageNo,int rowsPerPage);
 	public int memberTotalRows();
 	public Exam12Member getMember(String mid);
 	public void memberUpdate(Exam12Member m);

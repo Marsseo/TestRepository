@@ -21,7 +21,7 @@ public class ThermistorSensor {
 	}
 	
 	public static void main(String[] args) throws InterruptedException, Exception {
-		PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN1);
+		PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN2);
 		ThermistorSensor ts = new ThermistorSensor(pcf8591);
 		
 		while(true){

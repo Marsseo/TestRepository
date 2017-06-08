@@ -70,7 +70,7 @@ public class UltrasonicSensor {
 	}
 	public static void main(String[] args) throws InterruptedException {
 		
-		UltrasonicSensor uls = new UltrasonicSensor(RaspiPin.GPIO_00, RaspiPin.GPIO_02);
+		UltrasonicSensor uls = new UltrasonicSensor(RaspiPin.GPIO_28, RaspiPin.GPIO_29);
 		
 		while(true){
 			int distance = uls.getDistance();

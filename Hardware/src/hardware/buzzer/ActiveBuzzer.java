@@ -33,7 +33,7 @@ public class ActiveBuzzer {
 		return status;
 	}
 	public static void main(String[] args) throws InterruptedException {
-		ActiveBuzzer test = new ActiveBuzzer(RaspiPin.GPIO_00);
+		ActiveBuzzer test = new ActiveBuzzer(RaspiPin.GPIO_24);
 		for(int i=0;i<100;i++){
 			test.on();
 			Thread.sleep(300);

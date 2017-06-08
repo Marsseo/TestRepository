@@ -13,34 +13,31 @@
 	</head>
 <body>
 	<h4 style="text-align: center; margin-right: 20%">회원 목록</h4>
-	<hr/>
 	<div style="margin-top: 20px; width: 65%; text-align: right; margin-left: 100px;">
-			<a href="exam06Different" class="btn btn-info">사진위주로 보기</a>
+			<a href="exam06" class="btn btn-info">리스트로 보기</a>
 	</div>
 	<table class="table table-condensed" style="width: 65%; margin-left: 100px;">
-			<tr class="info">
-				<td>아이디</td>
-				<td>이름</td>
-				<td>나이</td>
-			</tr>
-			<c:forEach var="m" items="${list}">
 				<tr>
-					<td>${m.mid}</td>
-					<td><a href="exam06Detail?mid=${m.mid}&pageNo=${pageNo}">${m.mname}</a></td>
-					<td>${m.mage}</td>
+				<c:forEach var="m" items="${list}">			
+					<td><a href="exam06Detail?mid=${m.mid}&pageNo=${pageNo}">
+						<img src="exam06Download?savedfilename=${m.msavedfilename}" width="120px" height="160px"/></a>
+						<br/>${m.mid}
+						<br/>${m.mname}
+						<br/>${m.mage}
+					</td>
+				</c:forEach>
 				</tr>
-			</c:forEach>
 		</table>
 		<div style="margin-top: 50px; margin-left: 100px; width: 65%; text-align: center;">
-			<a href="exam06?pageNo=1" >[처음]</a>
-			<c:if test="${groupNo>1}"><a href="exam06?pageNo=${startPageNo-1}">[이전]</a></c:if>
+			<a href="exam06Different?pageNo=1" >[처음]</a>
+			<c:if test="${groupNo>1}"><a href="exam06Different?pageNo=${startPageNo-1}">[이전]</a></c:if>
 			<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
 			&nbsp;
-			<a href="exam06?pageNo=${i}"<c:if test="${pageNo==i}">style="fontweight: bold; color: red;"</c:if>>${i}</a>
+			<a href="exam06Different?pageNo=${i}"<c:if test="${pageNo==i}">style="fontweight: bold; color: red;"</c:if>>${i}</a>
 			&nbsp;
 			</c:forEach>
-			<c:if test="${groupNo<totalGroupNo}"><a href="exam06?pageNo=${endPageNo+1}">[다음]</a></c:if>
-			<a href="exam06?pageNo=${totalPageNo}">[맨끝]</a>
+			<c:if test="${groupNo<totalGroupNo}"><a href="exam06Different?pageNo=${endPageNo+1}">[다음]</a></c:if>
+			<a href="exam06Different?pageNo=${totalPageNo}">[맨끝]</a>
 		</div>
 		<div style="margin-top: 20px; width: 65%; text-align: right; margin-left: 100px;">
 			<a href="exam03" class="btn btn-success">회원 등록</a>

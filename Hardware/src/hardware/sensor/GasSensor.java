@@ -36,8 +36,8 @@ public class GasSensor {
 	}
 	
 	public static void main(String[] args) throws InterruptedException, Exception {
-		PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN1);
-		GasSensor ts = new GasSensor(pcf8591, RaspiPin.GPIO_04);
+		PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN3);
+		GasSensor ts = new GasSensor(pcf8591, RaspiPin.GPIO_23);
 		
 		// 방법 2 디지털 D0를 이용
 		ts.setGpioPinListenerDigital(new GpioPinListenerDigital() {

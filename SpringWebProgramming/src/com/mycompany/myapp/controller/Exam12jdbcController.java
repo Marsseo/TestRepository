@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,8 +33,11 @@ public class Exam12jdbcController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(Exam12jdbcController.class);
 	
-	@Autowired
+	@Resource(name="exam12DaoImpl2")
 	private Exam12Service service;
+	
+	@Resource(name="exam12DaoImpl")
+	private Exam12Service service2;
 	
 	@Autowired
 	private ServletContext servletContext;
@@ -89,7 +93,7 @@ public class Exam12jdbcController {
 		//서비스 객체에 요청처리 요청
 		service.memberJoin(m);
 		// 첨부 파일을 서버 로컬 시스템에 저장
-		String realPath = servletContext.getRealPath("/resources/upload/");	
+		String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
 		File file = new File(realPath+fileName);
 		m.getMattach().transferTo(file);		
 		
@@ -221,6 +225,46 @@ public class Exam12jdbcController {
 		
 		return "/jdbc/exam06";
 	}
+	@RequestMapping("/jdbc/exam06Different")
+	public String exam06Different(@RequestParam(defaultValue = "1") int pageNo, Model model){
+		
+		int line = 3;
+		//한 페이지를 구성하는
+		int rowsPerPage = 7;
+		//한 그룹을 구성하는 페이지 수
+		int pagesPerGroup = 5;
+		//총 행수
+		int totalRows = service.memberTotalRows();
+		//전체 페이지 수
+		int totalPageNo = totalRows/(rowsPerPage) + ((totalRows%(rowsPerPage)!=0)? 1: 0);
+		//전체 그룹 수
+		int totalGroupNo = totalPageNo/pagesPerGroup + ((totalPageNo%pagesPerGroup!=0)? 1: 0);
+		//현재 그룹 번호
+		int groupNo = (pageNo-1)/pagesPerGroup + 1;
+		//현재 그룹의 시작 페이지 번호
+		int startPageNo = (groupNo-1)*pagesPerGroup + 1;
+		//현재 그룹의 마지막 페이지 번호
+		int endPageNo = startPageNo+pagesPerGroup - 1;
+		if(groupNo == totalGroupNo) endPageNo = totalPageNo;
+		
+		//현재 페이지의 행의 데이터 가져오기
+		List<Exam12Member> list = service.memberListPageDif(pageNo, rowsPerPage);
+		
+		//View로 넘겨줄 데이터
+		model.addAttribute("list", list);
+		model.addAttribute("totalPageNo", totalPageNo);
+		model.addAttribute("totalGroupNo", totalGroupNo);
+		model.addAttribute("groupNo", groupNo);
+		model.addAttribute("startPageNo", startPageNo);
+		model.addAttribute("endPageNo", endPageNo);
+		model.addAttribute("pagesPerGroup", pagesPerGroup);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("line", line);
+		
+		return "/jdbc/exam06Different";
+	}
+	
+	
 	@RequestMapping("/jdbc/exam06Detail")
 	public String exam06Detail(String mid, int pageNo, Model model){
 		Exam12Member m = service.getMember(mid);
@@ -256,7 +300,7 @@ public class Exam12jdbcController {
 			//서비스 객체에 요청처리 요청
 			service.memberJoin(m);
 			// 첨부 파일을 서버 로컬 시스템에 저장
-			String realPath = servletContext.getRealPath("/resources/upload/");	
+			String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
 			File file = new File(realPath+fileName);
 			m.getMattach().transferTo(file);
 		}
@@ -295,7 +339,7 @@ public class Exam12jdbcController {
         // "image/jpeg" >  MIME
         
         // 3 파일 크기(옵션)m
-        File file = new File(servletContext.getRealPath("/resources/upload/" + fileName));
+        File file = new File(servletContext.getRealPath("/WEB-INF/upload/" + fileName));
         long fileSize = file.length();
         response.addHeader("Content-Length", String.valueOf(fileSize));
         
@@ -309,5 +353,6 @@ public class Exam12jdbcController {
         fis.close();
         os.close();
     }
+	
 	
 }
