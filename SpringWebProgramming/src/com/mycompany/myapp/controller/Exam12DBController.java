@@ -29,15 +29,18 @@ import com.mycompany.myapp.dto.Exam12Member;
 import com.mycompany.myapp.service.Exam12Service;
 
 @Controller
-public class Exam12jdbcController {
+public class Exam12DBController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(Exam12jdbcController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Exam12DBController.class);
 	
-	@Resource(name="exam12DaoImpl2")
+	@Resource(name="exam12ServiceImpl3")
 	private Exam12Service service;
 	
-	@Resource(name="exam12DaoImpl")
+/*	@Resource(name="exam12ServiceImpl")
 	private Exam12Service service2;
+	
+	@Resource(name="exam12ServiceImpl2")
+	private Exam12Service service3;*/
 	
 	@Autowired
 	private ServletContext servletContext;
@@ -67,12 +70,14 @@ public class Exam12jdbcController {
 		b.setBfilecontent(b.getBattach().getContentType());
 		String fileName = new Date().getTime()+"-"+b.getBoriginalfilename();
 		b.setBsavedfilename(fileName);
-		//서비스 객체에 요청처리 요청
-		service.boardWrite(b);
+
 		// 첨부 파일을 서버 로컬 시스템에 저장
 		String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
 		File file = new File(realPath+fileName);
-		b.getBattach().transferTo(file);		
+		b.getBattach().transferTo(file);
+		
+		//서비스 객체에 요청처리 요청
+		service.boardWrite(b);
 		
 		return "redirect:/jdbc/exam05";
 	}
@@ -90,12 +95,14 @@ public class Exam12jdbcController {
 		m.setMfilecontent(m.getMattach().getContentType());
 		String fileName = new Date().getTime()+"-"+m.getMoriginalfilename();
 		m.setMsavedfilename(fileName);
-		//서비스 객체에 요청처리 요청
-		service.memberJoin(m);
+		
 		// 첨부 파일을 서버 로컬 시스템에 저장
 		String realPath = servletContext.getRealPath("/WEB-INF/upload/");	
 		File file = new File(realPath+fileName);
-		m.getMattach().transferTo(file);		
+		m.getMattach().transferTo(file);
+		
+		//서비스 객체에 요청처리 요청
+		service.memberJoin(m);
 		
 		return "redirect:/jdbc/exam06";
 	}
@@ -173,7 +180,6 @@ public class Exam12jdbcController {
 			String fileName = new Date().getTime()+"-"+b.getBoriginalfilename();
 			b.setBsavedfilename(fileName);
 			//서비스 객체에 요청처리 요청
-			service.boardWrite(b);
 			// 첨부 파일을 서버 로컬 시스템에 저장
 			String realPath = servletContext.getRealPath("/WEB-INF/upload/");
 			File file = new File(realPath+fileName);

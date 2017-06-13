@@ -26,8 +26,6 @@ public class Exam12DaoImpl implements Exam12Dao{
 			String mid = null;
 			Connection conn = null;
 			
-			@Autowired
-			private DataSource dataSource;
 			
 	@Override
 	public int boardInsert(Exam12Board board) {
