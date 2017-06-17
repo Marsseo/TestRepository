@@ -1,16 +1,11 @@
 package coap.exam04.server;
 
-import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
-import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import hardware.buzzer.ActiveBuzzer;
 import hardware.convertor.PCF8591;
 import hardware.motor.DCMotor;
 import hardware.motor.PCA9685;
 import hardware.sensor.GasSensor;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 
@@ -89,7 +84,7 @@ public class CoapResource06 extends CoapResource {
 //		String  a = exchange.getRequestText();
 //		System.out.println(a);
 		
-			if(value>160 && state){
+			if(value>200 && state){
 
 				exchange.respond("************ 가스검출 ***************");
 				test.on();
