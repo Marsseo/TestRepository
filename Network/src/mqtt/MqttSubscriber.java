@@ -4,6 +4,7 @@ import java.util.Date;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
@@ -34,12 +35,15 @@ public class MqttSubscriber {
 
 	public MqttSubscriber() throws MqttException {
 		// MQTT 클라이언트 생성
-		mqttClient = new MqttClient("tcp://192.168.3.133:1883", MqttClient.generateClientId());
+		mqttClient = new MqttClient("tcp://192.168.3.109:1883", MqttClient.generateClientId());
 		
 		//통신 결과에 따라 실행할 콜백 개체 생성
 		mqttClient.setCallback(mqttCallback);
 		
-		mqttClient.connect();
+		MqttConnectOptions conOpt = new MqttConnectOptions();
+		conOpt.setCleanSession(true);
+		
+		mqttClient.connect(conOpt);
 	}
 	
 	public void subscribe() throws MqttException{
@@ -56,7 +60,6 @@ public class MqttSubscriber {
 	
 	public static void main(String[] args) throws Exception {
 		MqttSubscriber subscriber = new MqttSubscriber();
-		// 매 1초 단위로 온도 메세지를 보냄
 				
 		
 		subscriber.subscribe();

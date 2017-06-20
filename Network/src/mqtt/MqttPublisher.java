@@ -6,6 +6,7 @@ import java.util.Date;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
@@ -36,19 +37,21 @@ public class MqttPublisher {
 
 	public MqttPublisher() throws MqttException {
 		// MQTT 클라이언트 생성
-		mqttClient = new MqttClient("tcp://192.168.3.11:1883", MqttClient.generateClientId());
+		mqttClient = new MqttClient("tcp://192.168.3.109:1883", MqttClient.generateClientId());
 		
 		//통신 결과에 따라 실행할 콜백 개체 생성
 		mqttClient.setCallback(mqttCallback);
 		
-		mqttClient.connect();
+		MqttConnectOptions conOpt = new MqttConnectOptions();
+		conOpt.setCleanSession(true);
+		mqttClient.connect(conOpt);
 	}
 	
 	public void publish(String text) throws MqttException{
 		// MQTT 브로커로 보내는 메세지 생성
 		MqttMessage message = new MqttMessage(text.getBytes());
 		// 지정한 MQTT 브로커로 메세지 보냄
-		mqttClient.publish("devices/device/temparature", message);
+		mqttClient.publish("devices/device1/temparature", message);
 	}
 	
 	public void shutdown() throws MqttException{
