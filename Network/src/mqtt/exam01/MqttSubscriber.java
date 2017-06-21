@@ -1,4 +1,4 @@
-package mqtt;
+package mqtt.exam01;
 
 import java.util.Date;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;

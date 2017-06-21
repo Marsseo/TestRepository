@@ -1,4 +1,4 @@
-package mqtt;
+package mqtt.exam01;
 
 import hardware.convertor.PCF8591;
 import hardware.sensor.ThermistorSensor;
@@ -68,7 +68,7 @@ public class MqttPublisher {
 		PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN1);
 		ThermistorSensor ts = new ThermistorSensor(pcf8591);
 		
-		for(int i =1;i<=5;i++){
+		for(int i =1;i<=50;i++){
 			publisher.publish("temperature"+ts.getValue());
 			Thread.sleep(1000);
 		}
