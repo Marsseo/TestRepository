@@ -46,7 +46,7 @@ public class UltraSonicSensorResource extends CoapResource{
 				int count = 1;
 				while(true){
 					try{
-						curDistance = uts.getDistance();
+						curDistance = uts.getDistance(ThermistorResource.curTemperature);
 						if(count==2){
 							changed();
 							count=0;
@@ -98,14 +98,14 @@ public class UltraSonicSensorResource extends CoapResource{
 				int jangle = Integer.parseInt(requestJsonObject.getString("angle"));
 				setAngle(jangle);
 				try{Thread.sleep(1000);}catch(Exception e){}
-				curDistance = uts.getDistance();
+				curDistance = uts.getDistance(ThermistorResource.curTemperature);
 				
 			}else if(command.equals("status")){
 
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("anlge", String.valueOf(curAngle));
+			responseJsonObject.put("angle", String.valueOf(curAngle));
 			responseJsonObject.put("distance", String.valueOf(curDistance) );
 			
 			String responseJson = responseJsonObject.toString();

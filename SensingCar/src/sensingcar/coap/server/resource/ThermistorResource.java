@@ -20,9 +20,9 @@ public class ThermistorResource extends CoapResource{
 	
 	private PCF8591 pcf8591;
 
-	private double curTemparature;
+	public static double curTemperature;
 	
-	
+	//private static ThermistorResource instance;
 	
 	private ThermistorSensor tms;
 
@@ -42,7 +42,7 @@ public class ThermistorResource extends CoapResource{
 			public void run() {
 				while(true){
 					try{
-						curTemparature = tms.getValue();
+						curTemperature = tms.getValue();
 						changed();
 						Thread.sleep(1000);
 					}catch(Exception e){
@@ -56,13 +56,14 @@ public class ThermistorResource extends CoapResource{
 		
 	}
 	
-	
+//	public static ThermistorResource getInstance(){
+//		return instance;
+//	}
 
 	@Override
 	public void handleGET(CoapExchange exchange) {
 		JSONObject responseJsonObject = new JSONObject();
-		responseJsonObject.put("angle", String.valueOf(curTemparature) );
-		responseJsonObject.put("temparature", String.valueOf(curTemparature) );
+		responseJsonObject.put("temperature", String.valueOf(curTemperature) );
 		
 		String responseJson = responseJsonObject.toString();
 		exchange.respond(responseJson);
@@ -84,7 +85,7 @@ public class ThermistorResource extends CoapResource{
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("temparature", String.valueOf(curTemparature));
+			responseJsonObject.put("temperature", String.valueOf(curTemperature));
 			
 			String responseJson = responseJsonObject.toString();
 
@@ -92,7 +93,7 @@ public class ThermistorResource extends CoapResource{
 		}catch(Exception e){
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "fail");
-			responseJsonObject.put("temparature", String.valueOf(curTemparature));
+			responseJsonObject.put("temperature", String.valueOf(curTemperature));
 
 			
 			String responseJson = responseJsonObject.toString();

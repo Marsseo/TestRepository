@@ -61,7 +61,7 @@ public class FrontTireResource extends CoapResource{
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("anlge", String.valueOf(curAngle));
+			responseJsonObject.put("angle", String.valueOf(curAngle));
 
 			String responseJson = responseJsonObject.toString();
 

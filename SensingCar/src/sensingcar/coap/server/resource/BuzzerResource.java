@@ -13,25 +13,31 @@ public class BuzzerResource extends CoapResource{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(BuzzerResource.class);
 	
+	private static BuzzerResource instance;
+	
 	private ActiveBuzzer buzzer;
 	private String curstatus;
 
 	public BuzzerResource() throws Exception {
 		super("buzzer");
 		
+		instance = this;
 		buzzer = new ActiveBuzzer(RaspiPin.GPIO_24);
 		off();
 	}
 	
-	private void on(){
+	public void on(){
 		buzzer.on();
 		curstatus = "on";
 	}
-	private void off(){
+	public void off(){
 		buzzer.off();
 		curstatus = "off";
 	}
 	
+	public static BuzzerResource getInstance(){
+		return instance;
+	}	
 
 	@Override
 	public void handleGET(CoapExchange exchange) {
@@ -60,7 +66,7 @@ public class BuzzerResource extends CoapResource{
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("anlge", String.valueOf(curstatus));
+			responseJsonObject.put("status", String.valueOf(curstatus));
 
 			String responseJson = responseJsonObject.toString();
 
@@ -68,7 +74,7 @@ public class BuzzerResource extends CoapResource{
 		}catch(Exception e){
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "fail");
-			responseJsonObject.put("angle", String.valueOf(curstatus));
+			responseJsonObject.put("status", String.valueOf(curstatus));
 
 			String responseJson = responseJsonObject.toString();
 

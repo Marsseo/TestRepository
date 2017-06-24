@@ -18,6 +18,7 @@ public class UltrasonicSensor {
 	private int count;
 	private int previousDistance;
 	
+	
 	public UltrasonicSensor(Pin trigPinNo,Pin echoPinNo){
 		GpioController gpioCont = GpioFactory.getInstance();
 		
@@ -27,43 +28,43 @@ public class UltrasonicSensor {
 		echoPin = gpioCont.provisionDigitalInputPin(echoPinNo);
 		echoPin.setShutdownOptions(true, PinState.LOW);
 	}
-	public int getDistance(){
+	
+		
+	public int getDistance(double temperature){
 		double start = 0;
 		double end = 0;
 
+		//
+		trigPin.low();
+		try {Thread.sleep(0, 5000);} catch (InterruptedException ex) {}
 		trigPin.high();
-		try {
-			Thread.sleep(0, 10000);
-		} catch (InterruptedException ex) {}
+		try {Thread.sleep(0, 10000);} catch (InterruptedException ex) {}
 		trigPin.low();
 		count = 0;
 		while(echoPin.isLow()){
 			count++;
-			if(count>50000) return getDistance();
+			if(count>10000) return getDistance(temperature);
 		}
 		start = System.nanoTime();
 		while(echoPin.isHigh()){
 			count++;
-			if(count>50000) return getDistance();
+			if(count>10000) return getDistance(temperature);
 		}
 		end = System.nanoTime();
-		double second = (end - start)/100000000/2;
-		//거리 (cm)
-		int distance = (int)(second*3400);
-		if(again==false && Math.abs(previousDistance-distance)>100){
+		double second = (end - start)/1000000000/2;
+		//거리 (cm
+		int distance = (int)(second*(33130+60.6*temperature));
+		if(again==false && Math.abs(previousDistance-distance)>250){
 			again = true;
-			getDistance();
-			distance = getDistance();
+			getDistance(temperature);
+			distance = getDistance(temperature);
 		}else{
 			again = false;
 		}
 		
-		if(distance < 2){
-			distance = 2;
-		}else if(distance>400){
-			distance = 400;
-		}
-		
+		if(distance < 2) distance = 2;
+		if(distance>400) distance = 400;
+				
 		previousDistance = distance;
 		
 		return distance;
@@ -73,7 +74,7 @@ public class UltrasonicSensor {
 		UltrasonicSensor uls = new UltrasonicSensor(RaspiPin.GPIO_28, RaspiPin.GPIO_29);
 		
 		while(true){
-			int distance = uls.getDistance();
+			int distance = uls.getDistance(25);
 			System.out.println("거리(cm): "+distance);
 			Thread.sleep(1000);
 		}

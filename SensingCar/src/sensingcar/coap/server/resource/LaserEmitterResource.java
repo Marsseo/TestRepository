@@ -60,7 +60,7 @@ public class LaserEmitterResource extends CoapResource{
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("anlge", String.valueOf(curstatus));
+			responseJsonObject.put("status", String.valueOf(curstatus));
 
 			String responseJson = responseJsonObject.toString();
 
@@ -68,7 +68,7 @@ public class LaserEmitterResource extends CoapResource{
 		}catch(Exception e){
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "fail");
-			responseJsonObject.put("angle", String.valueOf(curstatus));
+			responseJsonObject.put("status", String.valueOf(curstatus));
 
 			String responseJson = responseJsonObject.toString();
 

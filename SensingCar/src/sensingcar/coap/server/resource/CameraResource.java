@@ -34,7 +34,7 @@ public class CameraResource extends CoapResource{
 		LRrotation = new SG90ServoPCA9685Duration(pca9685, PCA9685.PWM_15);
 		UDrotation = new SG90ServoPCA9685Duration(pca9685, PCA9685.PWM_14);
 		turnLR(100);
-		turnUD(100);
+		turnUD(30);
 	}
 	
 	private void turnLR(int angle){

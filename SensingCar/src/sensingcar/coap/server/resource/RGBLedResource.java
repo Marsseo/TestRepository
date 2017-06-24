@@ -29,7 +29,7 @@ public class RGBLedResource extends CoapResource{
 	
 	private void setColor(int red, int green, int blue){
 		
-		rgbLed.ledColorSet(red, red, blue);
+		rgbLed.ledColorSet(red, green, blue);
 		curRed = red;
 		curGreen = green;
 		curBlue = blue;
