@@ -15,8 +15,8 @@ public class FrontTireResource extends CoapResource{
 	
 	private PCA9685 pca9685;
 	private SG90ServoPCA9685Duration rotation;
-	private final int maxAngle = 140;
-	private final int minAngle = 80;
+	private final int maxAngle = 130;
+	private final int minAngle = 50;
 	private int curAngle;
 	
 
@@ -25,7 +25,7 @@ public class FrontTireResource extends CoapResource{
 		pca9685 = PCA9685.getInstance();
 		
 		rotation = new SG90ServoPCA9685Duration(pca9685, PCA9685.PWM_00);
-		setAngle(120);
+		setAngle(90);
 	}
 	
 	private void setAngle(int angle){

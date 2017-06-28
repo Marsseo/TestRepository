@@ -27,7 +27,7 @@ public class UltraSonicSensorResource extends CoapResource{
 	private UltrasonicSensor uts;
 
 	public UltraSonicSensorResource() throws Exception {
-		super("ultrasonic");
+		super("ultrasonicsensor");
 		
 		setObservable(true);
 		getAttributes().setObservable();

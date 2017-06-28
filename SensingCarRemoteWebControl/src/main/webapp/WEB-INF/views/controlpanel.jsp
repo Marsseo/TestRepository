@@ -27,9 +27,7 @@
 		<script src="<%=application.getContextPath()%>/resources/js/trackingChart.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/gasChart.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/photoresistorChart.js"></script>
-		<script>
 
-		</script>
 	</head>
 
 	<body style="background-color: black;">

@@ -23,7 +23,7 @@ public class PhotoresistorSensorResource extends CoapResource{
 	private Photoresistor photores;
 
 	public PhotoresistorSensorResource() throws Exception {
-		super("photoresistor");
+		super("photoresistorsensor");
 		
 		setObservable(true);
 		getAttributes().setObservable();
@@ -57,7 +57,7 @@ public class PhotoresistorSensorResource extends CoapResource{
 	@Override
 	public void handleGET(CoapExchange exchange) {
 		JSONObject responseJsonObject = new JSONObject();
-		responseJsonObject.put("light", String.valueOf(curValue) );
+		responseJsonObject.put("photoresistor", String.valueOf(curValue) );
 		
 		String responseJson = responseJsonObject.toString();
 		exchange.respond(responseJson);
@@ -79,7 +79,7 @@ public class PhotoresistorSensorResource extends CoapResource{
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("light", String.valueOf(curValue));
+			responseJsonObject.put("photoresistor", String.valueOf(curValue));
 			
 			String responseJson = responseJsonObject.toString();
 
@@ -87,7 +87,7 @@ public class PhotoresistorSensorResource extends CoapResource{
 		}catch(Exception e){
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "fail");
-			responseJsonObject.put("light", String.valueOf(curValue));
+			responseJsonObject.put("photoresistor", String.valueOf(curValue));
 
 			
 			String responseJson = responseJsonObject.toString();

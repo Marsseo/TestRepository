@@ -27,7 +27,7 @@ public class ThermistorResource extends CoapResource{
 	private ThermistorSensor tms;
 
 	public ThermistorResource() throws Exception {
-		super("thermistor");
+		super("thermistorsensor");
 		
 		setObservable(true);
 		getAttributes().setObservable();
