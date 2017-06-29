@@ -67,7 +67,7 @@ public class TrackingSensorResource extends CoapResource{
 	@Override
 	public void handleGET(CoapExchange exchange) {
 		JSONObject responseJsonObject = new JSONObject();
-		responseJsonObject.put("color", curColor );
+		responseJsonObject.put("tracking", curColor );
 		
 		String responseJson = responseJsonObject.toString();
 		exchange.respond(responseJson);
@@ -89,7 +89,7 @@ public class TrackingSensorResource extends CoapResource{
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
-			responseJsonObject.put("color", curColor);
+			responseJsonObject.put("tracking", curColor);
 			
 			String responseJson = responseJsonObject.toString();
 
@@ -97,7 +97,7 @@ public class TrackingSensorResource extends CoapResource{
 		}catch(Exception e){
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "fail");
-			responseJsonObject.put("color", curColor);
+			responseJsonObject.put("tracking", curColor);
 
 			
 			String responseJson = responseJsonObject.toString();
