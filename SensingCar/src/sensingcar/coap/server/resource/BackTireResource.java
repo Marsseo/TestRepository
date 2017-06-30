@@ -32,6 +32,7 @@ public class BackTireResource extends CoapResource{
 		mRight = new DCMotor(RaspiPin.GPIO_02, RaspiPin.GPIO_03, pca9685, PCA9685.PWM_04);
 		
 		forward();
+		stop();
 	}
 	
 	public void forward(){
