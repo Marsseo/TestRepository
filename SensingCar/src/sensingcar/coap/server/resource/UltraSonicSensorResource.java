@@ -21,7 +21,7 @@ public class UltraSonicSensorResource extends CoapResource{
 	private int curAngle;
 	private int curDistance;
 	
-	private static int minAngle = 15; 
+	private static int minAngle = 20; 
 	private static int maxAngle = 160;
 	
 	private UltrasonicSensor uts;
@@ -68,7 +68,7 @@ public class UltraSonicSensorResource extends CoapResource{
 		if(angle<minAngle) angle = minAngle;
 		if(angle>maxAngle) angle = maxAngle;
 		curAngle = angle;
-		rotation.setAngle(curAngle);
+		rotation.setAngle(180-curAngle);
 		
 	}
 

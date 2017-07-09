@@ -36,14 +36,14 @@ public class PhotoresistorSensorHandler extends TextWebSocketHandler implements 
 	@PostConstruct
 	public void init(){
 		coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.54/photoresistor");
+		coapClient.setURI("coap://192.168.3.54/photoresistorsensor");
 		coapObserveRelation = coapClient.observe(new CoapHandler() {
 			
 			@Override
 			public void onLoad(CoapResponse response) {
 				String json = response.getResponseText();
 				JSONObject jsonObject = new JSONObject(json);
-				double doubleT = Double.parseDouble(jsonObject.getString("light"));
+				double doubleT = Double.parseDouble(jsonObject.getString("photoresistor"));
 				double light = ((int)(doubleT*10))/10.0;
 				jsonObject.put("time", getUTCTime(new Date().getTime()));
 				jsonObject.put("light", light);

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleBtnMessageDialog"
+        android:text="메세지 다이얼로그"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="135dp" />
+
+        <Button
+            android:id="@+id/btnList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="handleBtnListDialog"
+            android:text="메세지 리스트" />
+
+        <Button
+            android:id="@+id/btnSingle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="handleBtnSinglehoiceDialog"
+            android:text="단일 선택" />
+
+        <Button
+            android:id="@+id/btnMultiple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="handleBtnMultChoiceDialog"
+            android:text="다중 선택 다이어로그" />
+
+    <Button
+            android:id="@+id/btnStickProgressDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="handleBtnStickProgressDialog"
+            android:text="막대 진행 다이얼로그" />
+
+        <Button
+            android:id="@+id/btnCircleProgressDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="handleBtnCircleProgressDialog"
+            android:text="계속 진행 다이얼로그" />
+
+    <Button
+        android:id="@+id/btnCustomDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleBtnCustomDialog"
+        android:text="사용자 정의 다이얼로그" />
+
+
+</LinearLayout>

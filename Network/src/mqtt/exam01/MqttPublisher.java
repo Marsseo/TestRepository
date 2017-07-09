@@ -1,6 +1,6 @@
 package mqtt.exam01;
 
-import hardware.convertor.PCF8591;
+import hardware.converter.PCF8591;
 import hardware.sensor.ThermistorSensor;
 import java.util.Date;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;

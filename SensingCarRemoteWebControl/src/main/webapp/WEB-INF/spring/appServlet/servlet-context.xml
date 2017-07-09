@@ -36,10 +36,10 @@
 	
 	<!-- WebSocket URL Mapping -->
 	<websocket:handlers>
-	<websocket:mapping handler="thermistorSensorHandler" path="websocket/thermistor"></websocket:mapping>
-	<websocket:mapping handler="ultrasonicSensorHandler" path="websocket/ultrasonic"></websocket:mapping>
-	<websocket:mapping handler="trackingSensorHandler" path="websocket/tracking"></websocket:mapping>
-	<websocket:mapping handler="photoresistorSensorHandler" path="websocket/photoresistor"></websocket:mapping>
+	<websocket:mapping handler="thermistorSensorHandler" path="websocket/thermistorsensor"></websocket:mapping>
+	<websocket:mapping handler="ultrasonicSensorHandler" path="websocket/ultrasonicsensor"></websocket:mapping>
+	<websocket:mapping handler="trackingSensorHandler" path="websocket/trackingsensor"></websocket:mapping>
+	<websocket:mapping handler="photoresistorSensorHandler" path="websocket/photoresistorsensor"></websocket:mapping>
 	<websocket:mapping handler="gasSensorHandler" path="websocket/gassensor"></websocket:mapping>
 	</websocket:handlers>
 	

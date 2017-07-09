@@ -26,7 +26,7 @@ public class CoapResource02 extends CoapResource{
 			@Override
 			public void run() {
 				while(true){
-					distance = ultra.getDistance(25);
+					distance = ultra.getDistance();
 					try {	Thread.sleep(100); } catch (InterruptedException ex) {}
 				}
 			}

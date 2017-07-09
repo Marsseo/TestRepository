@@ -2,7 +2,7 @@ package coap.exam04.server;
 
 import com.pi4j.io.gpio.RaspiPin;
 import hardware.buzzer.ActiveBuzzer;
-import hardware.convertor.PCF8591;
+import hardware.converter.PCF8591;
 import hardware.motor.DCMotor;
 import hardware.motor.PCA9685;
 import hardware.sensor.GasSensor;

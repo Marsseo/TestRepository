@@ -1,10 +1,7 @@
 package coap.exam04.server;
 
-import hardware.convertor.PCF8591;
+import hardware.converter.PCF8591;
 import hardware.sensor.ThermistorSensor;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static javax.management.Query.value;
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 

@@ -1,6 +1,6 @@
 package coap.exam01.server;
 
-import hardware.convertor.PCF8591;
+import hardware.converter.PCF8591;
 import hardware.sensor.ThermistorSensor;
 import java.util.logging.Level;
 import java.util.logging.Logger;

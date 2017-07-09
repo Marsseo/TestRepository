@@ -35,7 +35,7 @@ $(function() {
 });
 
 function requestTrackingSensorData(){
-	var ws = new WebSocket("ws://"+location.host+"/SensingCarRemoteWebControl/websocket/tracking");
+	var ws = new WebSocket("ws://"+location.host+"/SensingCarRemoteWebControl/websocket/trackingsensor");
 	ws.onmessage = function(event){
 		var data = JSON.parse(event.data);
 		var series = trackingChart.series[0];

@@ -60,7 +60,7 @@ public class HomeController {
 		jsonObject = new JSONObject();
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
-		coapClient.setURI("coap://192.168.3.54/laser");
+		coapClient.setURI("coap://192.168.3.54/laseremitter");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 		jsonObject = new JSONObject(json);
@@ -80,7 +80,7 @@ public class HomeController {
 		jsonObject = new JSONObject();
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
-		coapClient.setURI("coap://192.168.3.54/ultrasonic");
+		coapClient.setURI("coap://192.168.3.54/ultrasonicsensor");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 		jsonObject = new JSONObject(json);
@@ -164,7 +164,7 @@ public class HomeController {
 		pwr.close();
 	}
 	
-	@RequestMapping("/laser")
+	@RequestMapping("/laseremitter")
 	public void laseremitter(String command, String status, HttpServletResponse response) throws IOException {
 		
 		JSONObject jsonObject = new JSONObject();
@@ -208,7 +208,7 @@ public class HomeController {
 		
 	}
 	
-	@RequestMapping("/ultrasonic")
+	@RequestMapping("/ultrasonicsensor")
 	public void ultrasonic(String command, String angle, HttpServletResponse response) throws IOException {
 		
 		JSONObject jsonObject = new JSONObject();

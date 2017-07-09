@@ -35,7 +35,7 @@ $(function() {
 });
 
 function requestUltrasonicData(){
-	var ws = new WebSocket("ws://"+location.host+"/SensingCarRemoteWebControl/websocket/ultrasonic");
+	var ws = new WebSocket("ws://"+location.host+"/SensingCarRemoteWebControl/websocket/ultrasonicsensor");
 	ws.onmessage = function(event){
 		var data = JSON.parse(event.data);
 		var series = ultrasonicChart.series[0];

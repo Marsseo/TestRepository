@@ -35,7 +35,7 @@ $(function() {
 });
 
 function requestThermistorSensorData(){
-	var ws = new WebSocket("ws://"+location.host+"/SensingCarRemoteWebControl/websocket/thermistor");
+	var ws = new WebSocket("ws://"+location.host+"/SensingCarRemoteWebControl/websocket/thermistorsensor");
 	ws.onmessage = function(event){
 		var data = JSON.parse(event.data);
 		var series = thermistorSensorChart.series[0];

@@ -37,4 +37,25 @@
         android:layout_height="wrap_content"
         android:onClick="handleBtnMapActivity"
         android:text="지도 보기" />
+
+    <Button
+        android:id="@+id/btnDataSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleBtnDataSend"
+        android:text="데이터 전달" />
+
+    <Button
+        android:id="@+id/btnReturnValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleBtnReturnValue"
+        android:text="리턴값 받기" />
+
+    <Button
+        android:id="@+id/btnFileSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleFileSelect"
+        android:text="파일선택" />
 </LinearLayout>
