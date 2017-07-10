@@ -270,17 +270,16 @@ public class HttpActivity extends AppCompatActivity {
 
     public void handleBtnChangeAngle(View v){
 
-        String url = "http://192.168.3.109:8080/SensingCarRemoteWebControl/ultarsonicsensor";
+        String url = "http://192.168.3.109:8080/SensingCarRemoteWebControl/ultrasonicsensor";
 
 
-        RequestBody requestBody = new FormBody.Builder()
-                .add("command","change")
-                .add("angle",txtAngle.getText().toString())
+        HttpUrl httpUrl = HttpUrl.parse(url).newBuilder()
+                .addQueryParameter("command", "change")
+                .addQueryParameter("angle", txtAngle.getText().toString())
                 .build();
 
         Request request = new Request.Builder()
-                .url(url)
-                .post(requestBody)
+                .url(httpUrl)
                 .build();
 
         OkHttpClient client = new OkHttpClient();
@@ -292,9 +291,10 @@ public class HttpActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                final String json = response.body().string();
+                String json = response.body().string();
                 println(json);
             }
         });
     }
+
 }

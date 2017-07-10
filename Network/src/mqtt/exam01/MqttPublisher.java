@@ -51,7 +51,7 @@ public class MqttPublisher {
 		// MQTT 브로커로 보내는 메세지 생성
 		MqttMessage message = new MqttMessage(text.getBytes());
 		// 지정한 MQTT 브로커로 메세지 보냄
-		mqttClient.publish("devices/device1/temparature", message);
+		mqttClient.publish("/devices/device1/temperature", message);
 	}
 	
 	public void shutdown() throws MqttException{
@@ -65,11 +65,11 @@ public class MqttPublisher {
 		MqttPublisher publisher = new MqttPublisher();
 		// 매 1초 단위로 온도 메세지를 보냄
 		
-		PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN1);
-		ThermistorSensor ts = new ThermistorSensor(pcf8591);
+		//PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN1);
+		//ThermistorSensor ts = new ThermistorSensor(pcf8591);
 		
 		for(int i =1;i<=50;i++){
-			publisher.publish("temperature"+ts.getValue());
+			publisher.publish("temperature"+i);
 			Thread.sleep(1000);
 		}
 	}

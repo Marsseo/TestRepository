@@ -217,7 +217,7 @@ public class HomeController {
 		String json = jsonObject.toString();
 		
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.54:5683/ultrasonic");
+		coapClient.setURI("coap://192.168.3.54:5683/ultrasonicsensor");
 		CoapResponse coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 		coapClient.shutdown();

@@ -48,7 +48,7 @@ public class MqttSubscriber {
 	
 	public void subscribe() throws MqttException{
 		//지정한 토픽의 구독자로 신청
-		mqttClient.subscribe("devices/device1/temparature");
+		mqttClient.subscribe("/devices/device1/temperature");
 	}
 	
 	public void shutdown() throws MqttException{
