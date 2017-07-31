@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="최종프로젝트DB설계" id="BE336685-9020-939E-7705-D570B9FD0E3E" version="3.5">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 00:18:29 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>BE336685-9020-939E-7705-D570B9FD0E3E</designId>
+</OSDM_Design>

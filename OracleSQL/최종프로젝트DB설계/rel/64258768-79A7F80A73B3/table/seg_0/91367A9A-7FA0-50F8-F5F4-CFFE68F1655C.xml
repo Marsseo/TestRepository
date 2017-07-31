@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="91367A9A-7FA0-50F8-F5F4-CFFE68F1655C" name="order_item">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:58:49 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="orders_ono" id="47D41321-C0BF-8A0A-C634-94E30B147326">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:59:29 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D6E53BBF-B2C8-CEE9-501E-BFFE0B9A8884" referredColumn="19E6DB71-30D2-0B7A-2856-1E91F460E1FB"/>
+</associations>
+</Column>
+<Column name="product_pno" id="83C353C4-FD82-1FA6-0047-1E5BC1542E9F">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 02:00:21 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A079DBE9-44F0-64D6-5846-C088DC63078A" referredColumn="9988FC18-40AD-B64E-6C06-3B48B37DAF8A"/>
+</associations>
+</Column>
+<Column name="oamount" id="33C9736B-F0A8-6F3F-3862-E6CE9B3017FC">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 02:01:00 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4345AA35-FDFD-7C14-3BBB-F1385E138B55" name="order_item_orders_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:59:29 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47D41321-C0BF-8A0A-C634-94E30B147326"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E8A17313-6B35-6630-8E6F-F5234D9BB208" name="order_item_product_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 02:00:21 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83C353C4-FD82-1FA6-0047-1E5BC1542E9F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

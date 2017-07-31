@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="45663F6E-83D5-D1C5-5E0E-0F185C8F4A08" name="hobby">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:19:52 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mid" id="C8672324-B7E7-80D8-B1FC-0DA2F75C74FA">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:20:38 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B4654C1A-0758-81C4-3F49-2876398A7D23" referredColumn="DD4351CE-0A11-EF62-2D33-C066F618854C"/>
+</associations>
+</Column>
+<Column name="hobby" id="D371F2A3-DCDC-93A2-0E23-B7C13931B674">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:22:21 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8D00E923-53F0-0D63-B243-EFC7B722638C" name="hobby_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:22:43 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C8672324-B7E7-80D8-B1FC-0DA2F75C74FA"/>
+<colUsage columnID="D371F2A3-DCDC-93A2-0E23-B7C13931B674"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="923DC5B0-02C0-8F66-09FA-2695C0C0D25F" name="hobby_member2_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:20:38 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C8672324-B7E7-80D8-B1FC-0DA2F75C74FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
